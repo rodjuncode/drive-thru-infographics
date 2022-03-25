@@ -1,8 +1,10 @@
-const _BUILDINGS_BLOCK_SIZE = 90;
+const _BUILDINGS_BLOCK_WIDTH = 90;
+const _BUILDINGS_BLOCK_HEIGHT = 128;
 
 class BuildingBlock {
 
-    static size = _BUILDINGS_BLOCK_SIZE;
+    static width = _BUILDINGS_BLOCK_WIDTH;
+    static height = _BUILDINGS_BLOCK_HEIGHT;
 
     constructor(t) {
         this.type = t;
@@ -22,7 +24,7 @@ class BuildingBlock {
         } else if (this.type == BuildingBlockType.Counter) {
             fill(255,0,0);
         }
-        rect(0,0,90,128);
+        rect(0,0,BuildingBlock.width,BuildingBlock.height);
         pop();
     }
 
