@@ -18,7 +18,7 @@ class Car {
         this.moving = false;
         this.vel = 0;
         this.acc = 0.5;
-        this.brk = 0.25;
+        this.brk = 0.26;
         this.prevX = -1;
         this.nextX = -1;
         this.finished = false;

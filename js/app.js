@@ -1,5 +1,21 @@
 
 let timeWarp;
+let totemImg;
+let signImg;
+let blockImgs = {};
+
+function preload() {
+    totemImg = loadImage('assets/totem.png');
+    signImg = loadImage('assets/sign.png');
+    blockImgs = {
+        "Counter": loadImage('assets/counter.png'),
+        "NiceWall": loadImage('assets/niceWall.png'),
+        "SimpleWall": loadImage('assets/simpleWall.png'),
+        "Door": loadImage('assets/door.png'),
+        "Window": loadImage('assets/window.png'),
+    }
+    console.log(blockImgs);
+}
 
 function setup() {
     createCanvas(1800,500);
@@ -8,7 +24,7 @@ function setup() {
 
 
 function draw() {
-    background(200);
+    background(255);
 
     b.render();
 
@@ -37,7 +53,7 @@ function keyPressed(){
 }
 
 function start() {
-    b = new Building(300,200);
+    b = new Building(300,200,totemImg,signImg);
     c = new Car(b);
     c.waiting = 20;
     timeWarp = 1;

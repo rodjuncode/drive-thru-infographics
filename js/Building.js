@@ -10,12 +10,14 @@ class Building {
     static roofHeight = _ROOF_HEIGHT;
     static counterQty = _COUNTER_QTY;
 
-    constructor(x,y,s) {
+    constructor(x,y,totemImg,signImg) {
         this.position = createVector(x,y);
         this.blocks = [];
         this.counters = [];
         this.signPos = 0;
         this.size = Building.buildinsMaxSize;
+        this.totemImg = totemImg;
+        this.signImg = signImg;
         while (this.generate() < Building.counterQty);
         console.log(this.counters);
     }
@@ -66,20 +68,22 @@ class Building {
     }
 
     totem() {
-        fill(255,255,0);
+        fill(77);
         rect(-200,Building.roofHeight,65,128);
+        image(this.totemImg,-200,Building.roofHeight);
     }
 
     sign() {
-        fill(255);
+        fill(237,27,46);
         rect(this.signPos*BuildingBlock.width,-80,BuildingBlock.width*2,135);
+        image(this.signImg,this.signPos*BuildingBlock.width,-80);
     }
 
     roof() {
-        fill(30);
+        fill(77);
         noStroke();
         rect(0,0,BuildingBlock.width*this.blocks.length,Building.roofHeight);
-        fill(0,255,255);
+        fill(204);
         rect(-45,Building.roofHeight-15,BuildingBlock.width*this.blocks.length+90,15);
     }
 

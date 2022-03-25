@@ -13,18 +13,21 @@ class BuildingBlock {
     render() {
         push();
         noStroke();
+        let blockImage;
         if (this.type == BuildingBlockType.Door) {
-            fill(0,0,255);
+            blockImage = blockImgs[BuildingBlockType.Door.name]
         } else if (this.type == BuildingBlockType.SimpleWall) {
-            fill(100);
+            blockImage = blockImgs[BuildingBlockType.SimpleWall.name]
         } else if (this.type == BuildingBlockType.NiceWall) {
-            fill(50);
+            blockImage = blockImgs[BuildingBlockType.NiceWall.name]
         } else if (this.type == BuildingBlockType.Window) {
-            fill(0,255,0);
+            blockImage = blockImgs[BuildingBlockType.Window.name]
         } else if (this.type == BuildingBlockType.Counter) {
-            fill(255,0,0);
+            blockImage = blockImgs[BuildingBlockType.Counter.name]
         }
+        fill(100);
         rect(0,0,BuildingBlock.width,BuildingBlock.height);
+        image(blockImage,0,0);
         pop();
     }
 
