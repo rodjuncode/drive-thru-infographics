@@ -1,7 +1,7 @@
 const _STREET_LINE = 30;
 const _START_LINE = -200;
-const _RANDOM_WAIT = 200;
-const _MIN_WAIT = 100;
+const _RANDOM_WAIT = 100;
+const _MIN_WAIT = 50;
 const _MIN_VEL = 0.75;
 
 class Car {
