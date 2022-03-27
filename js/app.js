@@ -4,6 +4,7 @@ let totemImg;
 let signImg;
 let carImgs = [];
 let blockImgs = {};
+let canvas;
 
 function preload() {
     totemImg = loadImage('assets/totem.png');
@@ -22,7 +23,9 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(900,220);
+    canvas = createCanvas(900,710);
+    canvas.position(0,0);
+    canvas.style('z-index', '-1');
     //createCanvas(1800,440);
     
     start();    
@@ -46,10 +49,10 @@ function draw() {
 }
 
 function mouseClicked() {
-    timeWarp++;
-    if (timeWarp > 5) {
-        timeWarp = 1;
-    }
+    // timeWarp++;
+    // if (timeWarp > 5) {
+    //     timeWarp = 1;
+    // }
 }
 function keyPressed(){
     if (key == ' '){ //this means space bar, since it is a space inside of the single quotes 
@@ -64,7 +67,7 @@ function start() {
     for (let b = 0; b < burgers.length; b++) {
         burgers[b].removeClass('selected');
     }    
-    b = new Building(300,200,totemImg,signImg);
+    b = new Building(300,1180,totemImg,signImg);
     c = new Car(b);
     timeWarp = 1;
 }

@@ -19,7 +19,6 @@ class Building {
         this.totemImg = totemImg;
         this.signImg = signImg;
         while (this.generate() < Building.counterQty);
-        console.log(this.counters);
     }
 
     generate() {
@@ -35,7 +34,6 @@ class Building {
                 this.blocks.push(new BuildingBlock(BuildingBlockType.Counter));
                 this.counters.push(i);
                 countersCount++;
-                console.log(countersCount);
                 pastBlockWasCounter = true;
             } else {
                 this.blocks.push(new BuildingBlock(possibleBlocks[floor(random(possibleBlocks.length))]));
@@ -61,7 +59,7 @@ class Building {
 
     gutter() {
         push();
-        translate(0,440);
+        translate(0,1420);
         fill(200);
         noStroke();
         rect(0,0,1800,-42);
@@ -70,7 +68,7 @@ class Building {
 
     street() {
         push();
-        translate(0,440);
+        translate(0,1420);
         fill(80);
         noStroke();
         rect(0,0,1800,-32);

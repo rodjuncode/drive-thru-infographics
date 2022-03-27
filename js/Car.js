@@ -27,7 +27,6 @@ class Car {
         this.position = createVector(Car.startLine,b.position.y+Building.roofHeight+BuildingBlock.height+Car.streetLine);
         //this.waiting = random(Car.randomWait) + Car.minWait;
         this.waiting = 50;
-        console.log('new');
     }
 
 
@@ -67,7 +66,6 @@ class Car {
 
     move(timeWarp) {
         if (this.moving) {
-            console.log('moving');
             if (this.position.x <= ((this.nextX - this.position.x)*.5) + this.prevX) {
                 this.vel += this.acc*timeWarp;
             } else {
@@ -93,7 +91,6 @@ class Car {
     update(timeWarp) {
         if (this.waiting > 0) {
             this.waiting -= 1*timeWarp;
-            console.log('waiting');
         } else {
             this.waiting = 0;
             this.nextCounter();
