@@ -1,7 +1,7 @@
 const _STREET_LINE = 30;
 const _START_LINE = -200;
-const _RANDOM_WAIT = 500;
-const _MIN_WAIT = 200;
+const _RANDOM_WAIT = 200;
+const _MIN_WAIT = 100;
 const _MIN_VEL = 0.75;
 
 class Car {
@@ -23,8 +23,10 @@ class Car {
         this.nextX = -1;
         this.finished = false;
         this.color = color(floor(random(255)),floor(random(255)),floor(random(255)));
+        this.image = carImgs[floor(random(carImgs.length))];
         this.position = createVector(Car.startLine,b.position.y+Building.roofHeight+BuildingBlock.height+Car.streetLine);
-        this.waiting = random(Car.randomWait) + Car.minWait;
+        //this.waiting = random(Car.randomWait) + Car.minWait;
+        this.waiting = 50;
         console.log('new');
     }
 
@@ -32,16 +34,29 @@ class Car {
     render() {
         push();
         translate(this.position.x-200,this.position.y);
-        strokeWeight(4)
-        fill(this.color);
-        rect(60,0,200,-100);
-        pop();
+        //strokeWeight(4)
+        //fill(this.color);
+        //rect(60,0,200,-100);
+        image(this.image,40,0,270,-100,0,((frameCount % 5 == 0) & this.moving ? 110 : 0),310,110);
     }
 
     nextCounter() {
         if (!this.moving) {
             this.prevX = this.position.x;
             this.moving = true;
+            let burgers = selectAll('.burger');
+            for (let b = 0; b < burgers.length; b++) {
+                burgers[b].removeClass('selected');
+            }
+            if (this.currCounter == -1) {
+                select('span.one').addClass('selected');
+            }
+            if (this.currCounter == 0) {
+                select('span.two').addClass('selected');
+            }
+            if (this.currCounter == 1) {
+                select('span.three').addClass('selected');
+            }
             if (this.currCounter < Building.counterQty-1) {
                 this.nextX = this.building.position.x + this.building.counterXPosition(this.currCounter+1);
             } else {

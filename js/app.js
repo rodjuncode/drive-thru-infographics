@@ -2,11 +2,16 @@
 let timeWarp;
 let totemImg;
 let signImg;
+let carImgs = [];
 let blockImgs = {};
 
 function preload() {
     totemImg = loadImage('assets/totem.png');
     signImg = loadImage('assets/sign.png');
+    carImgs.push(loadImage('assets/car1.png'));
+    carImgs.push(loadImage('assets/car2.png'));
+    carImgs.push(loadImage('assets/car3.png'));
+    carImgs.push(loadImage('assets/car4.png'));
     blockImgs = {
         "Counter": loadImage('assets/counter.png'),
         "NiceWall": loadImage('assets/niceWall.png'),
@@ -14,17 +19,19 @@ function preload() {
         "Door": loadImage('assets/door.png'),
         "Window": loadImage('assets/window.png'),
     }
-    console.log(blockImgs);
 }
 
 function setup() {
-    createCanvas(1800,500);
+    createCanvas(900,220);
+    //createCanvas(1800,440);
+    
     start();    
 }
 
 
 function draw() {
-    background(255);
+    background('#BAE3FA');
+    scale(0.5);
 
     b.render();
 
@@ -53,8 +60,11 @@ function keyPressed(){
 }
 
 function start() {
+    let burgers = selectAll('.burger');
+    for (let b = 0; b < burgers.length; b++) {
+        burgers[b].removeClass('selected');
+    }    
     b = new Building(300,200,totemImg,signImg);
     c = new Car(b);
-    c.waiting = 20;
     timeWarp = 1;
 }

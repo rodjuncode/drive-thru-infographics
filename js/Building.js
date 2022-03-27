@@ -49,12 +49,32 @@ class Building {
 
     render() {
         push();
+        this.gutter();
+        this.street();
         translate(this.position.x, this.position.y);
         this.roof();
         this.sign();
         this.totem();
         this.facade();
         pop();
+    }
+
+    gutter() {
+        push();
+        translate(0,440);
+        fill(200);
+        noStroke();
+        rect(0,0,1800,-42);
+        pop();
+    }
+
+    street() {
+        push();
+        translate(0,440);
+        fill(80);
+        noStroke();
+        rect(0,0,1800,-32);
+        pop();        
     }
 
     facade() {
