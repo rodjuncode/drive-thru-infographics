@@ -14,6 +14,10 @@ class Car {
 
     constructor(b) {
         this.building = b;
+        this.restart();
+    }
+
+    restart() {
         this.currCounter = -1;        
         this.moving = false;
         this.vel = 0;
@@ -22,9 +26,10 @@ class Car {
         this.prevX = -1;
         this.nextX = -1;
         this.finished = false;
-        this.color = color(floor(random(255)),floor(random(255)),floor(random(255)));
+        //this.color = color(floor(random(255)),floor(random(255)),floor(random(255)));
         this.image = carImgs[floor(random(carImgs.length))];
-        this.position = createVector(Car.startLine,b.position.y+Building.roofHeight+BuildingBlock.height+Car.streetLine);
+        //this.position = createVector(Car.startLine,b.position.y+Building.roofHeight+BuildingBlock.height+Car.streetLine);
+        this.position = { x: Car.startLine, y: b.position.y+Building.roofHeight+BuildingBlock.height+Car.streetLine };
         //this.waiting = random(Car.randomWait) + Car.minWait;
         this.waiting = 50;
     }
@@ -37,6 +42,7 @@ class Car {
         //fill(this.color);
         //rect(60,0,200,-100);
         image(this.image,40,0,270,-100,0,((frameCount % 5 == 0) & this.moving ? 110 : 0),310,110);
+        pop();
     }
 
     nextCounter() {

@@ -5,6 +5,8 @@ let signImg;
 let carImgs = [];
 let blockImgs = {};
 let canvas;
+let b;
+let c;
 
 function preload() {
     totemImg = loadImage('assets/totem.png');
@@ -42,10 +44,8 @@ function draw() {
     c.render();
 
     if (c.finished) {
-        c = new Car(b);
-    }
-
-    
+        c.restart();
+    }    
 }
 
 function mouseClicked() {
