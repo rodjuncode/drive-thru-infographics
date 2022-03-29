@@ -65,14 +65,14 @@ class Car {
             if (this.currCounter < Building.counterQty-1) {
                 this.nextX = this.building.position.x + this.building.counterXPosition(this.currCounter+1);
             } else {
-                this.nextX = 2500;
+                this.nextX = 2100;
             }
         } 
     }
 
     move(timeWarp) {
         if (this.moving) {
-            if (this.position.x <= ((this.nextX - this.position.x)*.5) + this.prevX) {
+            if ((this.position.x <= ((this.nextX - this.position.x)*.5) + this.prevX) || this.currCounter == 2) {
                 this.vel += this.acc*timeWarp;
             } else {
                 this.vel -= this.brk*timeWarp;
