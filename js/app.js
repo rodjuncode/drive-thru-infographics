@@ -65,15 +65,13 @@ function draw() {
 
 
 function mouseClicked() {
-    // timeWarp++;
-    // if (timeWarp > 5) {
-    //     timeWarp = 1;
-    // }
+    blinkSkyCount = 10;
+    start();
 }
 function keyPressed(){
     if (key == ' '){ //this means space bar, since it is a space inside of the single quotes 
-        blinkSkyCount = 10;
-        start();
+        // blinkSkyCount = 10;
+        // start();
     }  
     else if (keyCode === ENTER){
     }

@@ -45,11 +45,13 @@
             font-weight: 400;
             font-size: 1.2em;
             font-style: normal;
+            line-height: 1.2em;
             margin: 0 auto;
             padding: 0px 25px 25px 25px;
             width: 505px;
         }
         .title p span {
+            color: #fff131;
             text-transform: uppercase;
         }
         .menu { 
@@ -71,8 +73,9 @@
             display: inline-block;
             height: 30px;
             position: relative;
-            top: 3px;
+            top: 4px;
             width: 60px;
+            animation: float 0.75s ease-in-out infinite;
         }
         .selected {
             background: url('assets/burger.png') center no-repeat;    
@@ -80,6 +83,18 @@
         html, body {
             margin: 0;
             padding: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translatey(0px);
+            }
+            50% {
+                transform: translatey(-2px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
         }
         
     </style>
@@ -90,7 +105,7 @@
     <div class="title">
         <h2>As 3 fases do</h2>
         <h1>Drive-Thru do Méqui</h1>
-        <p>No mundo, são mais de 25.000 restaurantes do Méqui com Drive-Thru. Clique na <span>barra de espaço</span> para visitar outros restaurantes!</p>
+        <p>No mundo, são mais de 25.000 restaurantes do Méqui com Drive-Thru.<br/><span>Clique com o mouse</span> para visitar outros restaurantes!</p>
     </div>
     <div class="menu">
         <div class="stage"><span class="burger one"></span>Faça seu pedido</div>
